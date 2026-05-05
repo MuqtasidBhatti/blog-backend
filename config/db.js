@@ -6,7 +6,7 @@ const connectDB = async () => {
     if (isConnected) return
     
     try {
-        const db = await mongoose.connect(process.env.MONGO_URI)
+        const db = await mongoose.connect(process.env.MONGODB_URI)
         isConnected = db.connections[0].readyState === 1
         console.log('MongoDB connected')
     } catch (err) {
@@ -14,5 +14,4 @@ const connectDB = async () => {
         throw err
     }
 }
-
 module.exports = connectDB
